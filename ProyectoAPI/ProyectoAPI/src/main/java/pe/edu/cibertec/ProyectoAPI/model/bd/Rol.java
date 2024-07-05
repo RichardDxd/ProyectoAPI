@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,4 +20,9 @@ public class Rol {
     private Integer idrol;
     @Column(name = "nomrol")
     private String nomrol;
+    @Column(name = "Descripcion")
+    private String descripcion;
+
+    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Empleado> empleados;
 }
